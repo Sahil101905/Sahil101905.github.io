@@ -79,18 +79,20 @@ export default function InteractiveLattice() {
     setStatus("Loading original CAD…");
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x05060a);
+    scene.background = new THREE.Color(0x030409);
     const camera = new THREE.PerspectiveCamera(38, 1, 0.01, 100000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.15;
+    renderer.toneMappingExposure = 1.38;
     host.prepend(renderer.domElement);
 
-    scene.add(new THREE.HemisphereLight(0xe8e7ff, 0x1b1d29, 2.2));
-    const key = new THREE.DirectionalLight(0xffffff, 4.4); key.position.set(4, 6, 8); scene.add(key);
-    const rim = new THREE.DirectionalLight(0x6658ff, 4); rim.position.set(-6, 2, -5); scene.add(rim);
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x151127, 3.1));
+    const key = new THREE.DirectionalLight(0xffffff, 5.8); key.position.set(4, 7, 8); scene.add(key);
+    const fill = new THREE.DirectionalLight(0xb9b3ff, 3.2); fill.position.set(-4, 1, 5); scene.add(fill);
+    const rim = new THREE.DirectionalLight(0x725cff, 6.2); rim.position.set(-7, 3, -6); scene.add(rim);
+    const lowerRim = new THREE.PointLight(0x4433ff, 120, 0, 1.6); lowerRim.position.set(0, -4, 3); scene.add(lowerRim);
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = .07;
@@ -111,6 +113,11 @@ export default function InteractiveLattice() {
       const size = box.getSize(new THREE.Vector3());
       group.position.sub(center);
       const radius = Math.max(size.x, size.y, size.z) * .72;
+      const grid = new THREE.GridHelper(radius * 5, 20, 0x6f61ff, 0x20212d);
+      grid.position.y = -radius * .92;
+      grid.material.transparent = true;
+      grid.material.opacity = .32;
+      scene.add(grid);
       camera.near = Math.max(radius / 100, .01);
       camera.far = radius * 100;
       camera.position.set(radius * 1.45, radius * 1.05, radius * 1.45);
@@ -131,9 +138,13 @@ export default function InteractiveLattice() {
         geometry.setAttribute("position", new THREE.Float32BufferAttribute(mesh.attributes.position.array, 3));
         if (mesh.attributes.normal) geometry.setAttribute("normal", new THREE.Float32BufferAttribute(mesh.attributes.normal.array, 3)); else geometry.computeVertexNormals();
         geometry.setIndex(mesh.index.array);
-        const color = mesh.color ? new THREE.Color(mesh.color[0] / 255, mesh.color[1] / 255, mesh.color[2] / 255) : new THREE.Color(0x8f8aa8);
-        const material = new THREE.MeshStandardMaterial({ color, metalness: .34, roughness: .3, wireframe });
+        const sourceColor = mesh.color ? new THREE.Color(mesh.color[0] / 255, mesh.color[1] / 255, mesh.color[2] / 255) : new THREE.Color(0x8f8aa8);
+        const color = sourceColor.lerp(new THREE.Color(0xd9d6e8), .68);
+        const material = new THREE.MeshPhysicalMaterial({ color, metalness: .46, roughness: .24, clearcoat: .72, clearcoatRoughness: .2, wireframe });
         group.add(new THREE.Mesh(geometry, material));
+        const edges = new THREE.EdgesGeometry(geometry, 34);
+        const edgeMaterial = new THREE.LineBasicMaterial({ color: 0xb4adff, transparent: true, opacity: .28 });
+        group.add(new THREE.LineSegments(edges, edgeMaterial));
       });
       modelRef.current = group;
       scene.add(group);
@@ -157,7 +168,7 @@ export default function InteractiveLattice() {
       renderer.dispose();
       renderer.domElement.remove();
       scene.traverse((child) => {
-        if (child instanceof THREE.Mesh) { child.geometry.dispose(); (Array.isArray(child.material) ? child.material : [child.material]).forEach((material) => material.dispose()); }
+        if (child instanceof THREE.Mesh || child instanceof THREE.LineSegments) { child.geometry.dispose(); (Array.isArray(child.material) ? child.material : [child.material]).forEach((material) => material.dispose()); }
       });
       modelRef.current = null;
       controlsRef.current = null;
@@ -172,7 +183,7 @@ export default function InteractiveLattice() {
   };
 
   return <>
-    <section className="project-explorer" aria-labelledby="geometry-heading">
+    <section className="project-explorer" id="cad" aria-labelledby="geometry-heading">
       <div className="explorer-copy">
         <p className="case-kicker">Interactive original CAD</p>
         <h2 id="geometry-heading">Compare the design iterations.</h2>
@@ -194,7 +205,7 @@ export default function InteractiveLattice() {
       </div>
     </section>
 
-    <section className="result-explorer" aria-labelledby="results-heading">
+    <section className="result-explorer" id="simulation" aria-labelledby="results-heading">
       <div className="result-heading"><div><p className="case-kicker">Nonlinear simulation</p><h2 id="results-heading">Inspect the evidence.</h2></div><p>The result viewer presents the original SolidWorks Simulation exports without converting their color scales into unsupported performance claims.</p></div>
       <div className="result-tabs" role="tablist" aria-label="Simulation result type">
         {results.map((item, index) => <button role="tab" aria-selected={index === result} className={index === result ? "active" : ""} key={item.id} onClick={() => setResult(index)}>{item.label}</button>)}

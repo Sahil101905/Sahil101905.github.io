@@ -94,6 +94,7 @@ export default function Home() {
                 <p className="eyebrow">{project.eyebrow}</p><h3>{project.title}</h3>
                 <p>{project.summary}</p><p className="outcome"><span>Outcome</span>{project.outcome}</p>
                 <div className="tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                {project.id === "lattice" && <a className="project-link" href="/projects/tetra-chiral-prosthetic-lattice">Explore interactive case study ↗</a>}
               </div>
             </article>
           ))}

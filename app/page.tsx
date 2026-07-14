@@ -154,9 +154,10 @@ export default function Home() {
               <div><span>Experiments</span><strong>Contact, recovery, transmission, quarantine</strong></div>
             </div>
             <p className="outcome"><span>What it demonstrated</span>The model made it possible to compare population-level dynamics with heterogeneous person-to-person transmission, then quantify how parameter changes shifted peak infections and time-to-peak.</p>
+            <a className="matlab-report-link" href="/matlab/bcopsim-report.docx" download>Read the full project report <span>DOCX ↗</span></a>
           </div>
           <div className="matlab-gallery">
-            <figure className="gallery-wide"><img src="/matlab/bcopsim-network.png" alt="SEIR state changes across a synthetic contact network on days 1, 21, and 60" /><figcaption>State propagation across the contact network</figcaption></figure>
+            <figure className="gallery-wide"><img src="/matlab/bcopsim-contact-network.png" alt="SEIR state changes across a contact network on days 1, 42, and 100" /><figcaption>Contact-network state propagation · Day 1 → Day 42 → Day 100</figcaption></figure>
             <figure><img src="/matlab/bcopsim-parameters.jpg" alt="MATLAB parameter analysis plots for contact, transmission, and recovery rates" /><figcaption>Parameter sensitivity</figcaption></figure>
             <figure><img src="/matlab/bcopsim-quarantine.jpg" alt="MATLAB plots showing quarantine effects on peak infections and time to peak" /><figcaption>Quarantine intervention study</figcaption></figure>
           </div>

@@ -51,6 +51,7 @@ export default function Home() {
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a>
           <a href="#systems">Systems</a>
+          <a href="#matlab">MATLAB</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -135,8 +136,68 @@ export default function Home() {
         </article>
       </section>
 
+      <section className="section matlab-section" id="matlab">
+        <div className="section-heading">
+          <p>03 / MATLAB laboratory</p>
+          <h2>Models built to<br /><em>answer questions.</em></h2>
+          <span>A selected archive of simulation, signal-processing, optimization, and biomedical-computation work built in MATLAB and Simulink.</span>
+        </div>
+
+        <article className="matlab-feature">
+          <div className="matlab-feature-copy">
+            <p className="eyebrow">BCOPSim / Network science / ODE systems</p>
+            <h3>COVID transmission across synthetic contact networks</h3>
+            <p>Built two complementary epidemic models: a continuous SEIR system solved with <code>ode45</code>, and an agent-level contact-network simulation driven by a power-law degree distribution. The network model tracks each individual through susceptible, exposed, infectious, and recovered states.</p>
+            <div className="matlab-facts">
+              <div><span>Scale</span><strong>10,000 simulated individuals</strong></div>
+              <div><span>Methods</span><strong>SEIR · ODE45 · graph models</strong></div>
+              <div><span>Experiments</span><strong>Contact, recovery, transmission, quarantine</strong></div>
+            </div>
+            <p className="outcome"><span>What it demonstrated</span>The model made it possible to compare population-level dynamics with heterogeneous person-to-person transmission, then quantify how parameter changes shifted peak infections and time-to-peak.</p>
+          </div>
+          <div className="matlab-gallery">
+            <figure className="gallery-wide"><img src="/matlab/bcopsim-network.png" alt="SEIR state changes across a synthetic contact network on days 1, 21, and 60" /><figcaption>State propagation across the contact network</figcaption></figure>
+            <figure><img src="/matlab/bcopsim-parameters.jpg" alt="MATLAB parameter analysis plots for contact, transmission, and recovery rates" /><figcaption>Parameter sensitivity</figcaption></figure>
+            <figure><img src="/matlab/bcopsim-quarantine.jpg" alt="MATLAB plots showing quarantine effects on peak infections and time to peak" /><figcaption>Quarantine intervention study</figcaption></figure>
+          </div>
+        </article>
+
+        <div className="matlab-project-grid">
+          <article className="matlab-project image-project">
+            <div className="matlab-project-image"><img src="/matlab/emg-interface.png" alt="MATLAB interface displaying raw and processed EMG signals" /></div>
+            <div><p className="eyebrow">Signal processing / Interface design</p><h3>Configurable EMG analysis pipeline</h3><p>A MATLAB workflow for importing muscle signals, applying selectable Butterworth filtering, rectification, and moving-window smoothing, then measuring maximum voluntary contraction over a chosen time window.</p><ul><li>Band-pass, high-pass, and low-pass paths</li><li>Zero-phase filtering with <code>filtfilt</code></li><li>MVC normalization and database export</li></ul></div>
+          </article>
+
+          <article className="matlab-project image-project">
+            <div className="matlab-project-image"><img src="/matlab/muscle-spindle.png" alt="Simulink model of a muscle spindle feedback system" /></div>
+            <div><p className="eyebrow">Simulink / Physiological systems</p><h3>Muscle-spindle feedback model</h3><p>Modeled a physiological feedback system in Simulink to connect stimulus, dynamic response, and feedback behavior in a visual block-based simulation.</p><ul><li>Dynamic-system decomposition</li><li>Signal flow and feedback loops</li><li>Time-domain response analysis</li></ul></div>
+          </article>
+
+          <article className="matlab-project protein-project">
+            <div className="protein-visual" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
+            <div><p className="eyebrow">Optimization / Computational biology</p><h3>Protein folding with a genetic algorithm</h3><p>Defined a three-dimensional fitness function that rewards feasible hydrogen bonds while penalizing invalid consecutive-residue spacing and nonconsecutive steric collisions.</p><ul><li>3D coordinate optimization</li><li>Distance-matrix evaluation</li><li>Constraint-aware fitness scoring</li></ul></div>
+          </article>
+
+          <article className="matlab-project image-project">
+            <div className="matlab-project-image cell-image"><img src="/matlab/cell-counting.jpg" alt="Microscope image used for MATLAB cell segmentation and counting" /></div>
+            <div><p className="eyebrow">Image processing / Biomedical computation</p><h3>Automated cell segmentation and counting</h3><p>Created an image-processing pipeline that converts microscopy data into a connected-component count through edge detection and morphological cleanup.</p><ul><li>Sobel edge detection</li><li>Dilation, hole filling, and erosion</li><li>Connected-component measurement</li></ul></div>
+          </article>
+
+          <article className="matlab-project covid-project">
+            <div className="matlab-project-image"><img src="/matlab/simbiology-covid.png" alt="MATLAB SimBiology COVID model and simulation results" /></div>
+            <div><p className="eyebrow">SimBiology / Systems modeling</p><h3>Compartment-model experimentation</h3><p>Used SimBiology to express biological state transitions, run simulations, and inspect how parameterized interactions change system behavior over time.</p><ul><li>Species and reaction modeling</li><li>Parameterized simulation</li><li>Visual result inspection</li></ul></div>
+          </article>
+
+          <article className="matlab-project parameter-project">
+            <div className="parameter-visual"><span>k</span><span>c</span><span>x₀</span><span>v₀</span><b>min Σ error(t)</b></div>
+            <div><p className="eyebrow">Parameter estimation / Numerical methods</p><h3>Mass-spring-damper parameter fitting</h3><p>Constructed an objective function that simulates a dynamic system and compares its response against experimental time-series data to estimate unknown physical parameters.</p><ul><li>Improved Euler integration</li><li>Simulation-to-data error metric</li><li>Optimization-ready parameter vector</li></ul></div>
+          </article>
+        </div>
+        <p className="matlab-note">Selected from a larger archive of MATLAB coursework and engineering tools. The emphasis here is on projects with a clear model, computational method, and interpretable result.</p>
+      </section>
+
       <section className="section experience" id="experience">
-        <div className="section-heading"><p>03 / Field experience</p><h2>From research<br />to <em>production.</em></h2></div>
+        <div className="section-heading"><p>04 / Field experience</p><h2>From research<br />to <em>production.</em></h2></div>
         <div className="timeline">
           <article><time>2025—2026</time><div><h3>U.S. Naval Research Laboratory</h3><p>Spacecraft Mechanisms Design Engineer Co-op</p><span>MATLAB/Simulink controls · Siemens NX · robotic mechanisms · test fixtures · CAD automation</span></div></article>
           <article><time>2025—Present</time><div><h3>The Foundry</h3><p>Co-Founder</p><span>Building Philadelphia&apos;s builder-led founder community and connecting 10,000+ people through programs, events, mentorship, and capital access.</span></div></article>
@@ -146,7 +207,7 @@ export default function Home() {
       </section>
 
       <section className="contact" id="contact">
-        <p>04 / Contact</p><h2>Have a hard problem?<br /><em>Let&apos;s build the evidence.</em></h2>
+        <p>05 / Contact</p><h2>Have a hard problem?<br /><em>Let&apos;s build the evidence.</em></h2>
         <div className="contact-links">
           <a href="mailto:sk4363@drexel.edu"><span>School</span>sk4363@drexel.edu ↗</a>
           <a href="mailto:skhan101905@gmail.com"><span>Personal</span>skhan101905@gmail.com ↗</a>

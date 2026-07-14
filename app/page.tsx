@@ -147,7 +147,7 @@ export default function Home() {
           <div className="matlab-feature-copy">
             <p className="eyebrow">BCOPSim / Network science / ODE systems</p>
             <h3>COVID transmission across synthetic contact networks</h3>
-            <p>Built two complementary epidemic models: a continuous SEIR system solved with <code>ode45</code>, and an agent-level contact-network simulation driven by a power-law degree distribution. The network model tracks each individual through susceptible, exposed, infectious, and recovered states.</p>
+            <p>Built with Alexandra Nickel and Lily Wagner, the project combines two complementary epidemic models: a continuous SEIR system solved with <code>ode45</code>, and an agent-level contact-network simulation driven by a power-law degree distribution. The network model tracks each individual through susceptible, exposed, infectious, and recovered states.</p>
             <div className="matlab-facts">
               <div><span>Scale</span><strong>10,000 simulated individuals</strong></div>
               <div><span>Methods</span><strong>SEIR · ODE45 · graph models</strong></div>

@@ -21,10 +21,10 @@ export default function NegativePressureHelmetProject() {
         </div>
         <div className="helmet-hero-visual">
           <img
-            src="/projects/negative-pressure-helmet/prototype.webp"
-            alt="Built negative-pressure helmet prototype with a transparent shell, neck seal, HEPA filter, and exhaust fan"
+            src="/projects/negative-pressure-helmet/concept.png"
+            alt="Concept rendering of the negative-pressure helmet worn by a mannequin"
           />
-          <div><span>TEAM 6001</span><strong>Prototype / 2025</strong></div>
+          <div><span>TEAM 6001</span><strong>Concept rendering / 2025</strong></div>
         </div>
       </section>
 

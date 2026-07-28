@@ -25,6 +25,19 @@ const projects = [
     alt: "Engineering showcase poster for a low-cost modular prosthetic with EMG-driven intent prediction",
     tags: ["SolidWorks", "Raspberry Pi", "EMG", "Embedded control"],
   },
+  {
+    id: "helmet",
+    index: "03",
+    eyebrow: "Medical device design / Simulink / Verification",
+    title: "Negative-pressure isolation helmet",
+    summary:
+      "A low-cost containment prototype designed to support nebulizer treatment while drawing exhaled air through a HEPA-filtered exhaust path.",
+    outcome:
+      "Translated six requirements into a Simulink control-volume model, a $68.08 prototype, and a standards-informed bench verification plan.",
+    image: "/projects/negative-pressure-helmet/prototype.webp",
+    alt: "Built negative-pressure isolation helmet prototype with a transparent carboy shell and filtered exhaust fan",
+    tags: ["Simulink", "Design controls", "Verification", "Rapid prototyping"],
+  },
 ];
 
 const feaFlow = [
@@ -96,6 +109,7 @@ export default function Home() {
                 <div className="tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                 {project.id === "lattice" && <a className="project-link" href="/projects/tetra-chiral-prosthetic-lattice">Explore interactive case study ↗</a>}
                 {project.id === "emg" && <a className="project-link" href="/projects/emg-prosthetic-hand">Explore interactive case study ↗</a>}
+                {project.id === "helmet" && <a className="project-link" href="/projects/negative-pressure-helmet">Explore verification case study ↗</a>}
               </div>
             </article>
           ))}

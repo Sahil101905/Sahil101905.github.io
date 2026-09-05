@@ -71,29 +71,38 @@ export default function Home() {
         <a className="header-link" href="/resumes/sahil-khan-engineering-resume.pdf">Resume ↗</a>
       </header>
 
-      <section className="hero" id="top">
-        <div className="hero-rail" aria-hidden="true"><span>SK</span><span>01</span><span>2026</span></div>
-        <div className="hero-copy">
-          <p className="kicker"><span /> Mechanical · Biomedical · Software</p>
-          <h1>I build systems<br />from <em>signal</em><br />to <strong>structure.</strong></h1>
-          <p className="hero-intro">I&apos;m Sahil Khan—an engineer working across CAD, simulation, embedded systems, automation, and biomedical product development. I turn technical constraints into tested prototypes and usable software.</p>
+      <section className="hero personal-hero" id="top">
+        <div className="personal-hero-copy">
+          <p className="hero-greeting"><span aria-hidden="true" /> Hi, I&apos;m Sahil Khan.</p>
+          <h1>I build thoughtful systems for the <em>physical world.</em></h1>
+          <p className="personal-intro">
+            I&apos;m a biomedical engineering student at Drexel who enjoys working
+            where mechanical design, simulation, and software overlap. I&apos;ve
+            worked on prosthetics, spacecraft mechanisms, and engineering tools—and
+            I&apos;m happiest taking an idea from a sketch to something testable.
+          </p>
+          <p className="personal-note">
+            Outside the lab, I help build Philadelphia&apos;s founder community
+            through The Foundry.
+          </p>
           <div className="hero-actions">
-            <a className="button primary" href="#work">Explore selected work</a>
-            <a className="button ghost" href="mailto:sk4363@drexel.edu">Start a conversation</a>
+            <a className="button primary" href="#work">View selected work</a>
+            <a className="button ghost" href="/resumes/sahil-khan-engineering-resume.pdf">Download résumé</a>
+          </div>
+          <div className="personal-facts" aria-label="About Sahil">
+            <span>Biomedical engineering + biomechanics</span>
+            <span>Philadelphia, PA</span>
           </div>
         </div>
-        <div className="hero-visual" aria-label="Abstract engineered lattice visualization">
-          <div className="orbit orbit-one" /><div className="orbit orbit-two" />
-          <div className="lattice"><i /><i /><i /><i /><i /><i /><i /><i /><i /></div>
-          <div className="visual-note note-a">PARAMETRIC<br />GEOMETRY</div>
-          <div className="visual-note note-b">VERIFIED<br />BY TEST</div>
-          <div className="coordinate">39.9526° N / 75.1652° W</div>
-        </div>
-        <div className="hero-meta">
-          <div><span>Current</span><strong>B.S. Biomedical Engineering<br />M.S. Biomechanics · Drexel</strong></div>
-          <div><span>Focus</span><strong>Intelligent engineering tools<br />and physical systems</strong></div>
-          <div><span>Status</span><strong>Open to technical collaborations<br />and ambitious problems</strong></div>
-        </div>
+
+        <figure className="hero-portrait">
+          <div className="portrait-frame">
+            <img src="/images/sahil-khan-headshot.jpg" alt="Portrait of Sahil Khan" />
+          </div>
+          <figcaption><span>Sahil Khan</span><span>Drexel University · Class of 2027</span></figcaption>
+        </figure>
+
+        <a className="hero-scroll" href="#work" aria-label="Scroll to selected work"><span /> Selected work</a>
       </section>
 
       <section className="section work" id="work">

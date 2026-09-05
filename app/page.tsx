@@ -74,16 +74,14 @@ export default function Home() {
       <section className="hero personal-hero" id="top">
         <div className="personal-hero-copy">
           <p className="hero-greeting"><span aria-hidden="true" /> Hi, I&apos;m Sahil Khan.</p>
-          <h1>I build thoughtful systems for the <em>physical world.</em></h1>
+          <h1>Biomedical engineering, mechanical design, and <em>software.</em></h1>
           <p className="personal-intro">
-            I&apos;m a biomedical engineering student at Drexel who enjoys working
-            where mechanical design, simulation, and software overlap. I&apos;ve
-            worked on prosthetics, spacecraft mechanisms, and engineering tools—and
-            I&apos;m happiest taking an idea from a sketch to something testable.
+            I&apos;m a biomedical engineering student at Drexel University focused on
+            mechanical design, simulation, and engineering software. My work includes
+            prosthetic devices, spacecraft mechanisms, CAD automation, and computational modeling.
           </p>
           <p className="personal-note">
-            Outside the lab, I help build Philadelphia&apos;s founder community
-            through The Foundry.
+            I also co-founded The Foundry, a Philadelphia community for founders and builders.
           </p>
           <div className="hero-actions">
             <a className="button primary" href="#work">View selected work</a>
@@ -106,7 +104,7 @@ export default function Home() {
       </section>
 
       <section className="section work" id="work">
-        <div className="section-heading"><p>01 / Selected work</p><h2>Evidence over<br /><em>claims.</em></h2><span>Each case study begins with the problem and ends with what the evidence taught us.</span></div>
+        <div className="section-heading"><p>01 / Selected work</p><h2>Selected<br />projects.</h2><span>Case studies in product design, simulation, and engineering software.</span></div>
         <div className="project-list">
           {projects.map((project) => (
             <article className="project" id={project.id} key={project.id}>
@@ -126,10 +124,10 @@ export default function Home() {
       </section>
 
       <section className="section systems" id="systems">
-        <div className="section-heading"><p>02 / Engineering software</p><h2>Tools that make<br />analysis <em>repeatable.</em></h2><span>Architecture is shown where it is safe and useful. Sensitive implementation details remain private.</span></div>
+        <div className="section-heading"><p>02 / Engineering software</p><h2>Engineering<br />software.</h2><span>Selected tools and workflows for simulation, CAD automation, and technical analysis.</span></div>
         <article className="system-card fea-card">
           <div className="system-header"><div><p className="eyebrow">Numerical methods / Verification</p><h3>FEA software platform</h3></div><span className="status">In development</span></div>
-          <p className="system-lede">A modular engineering simulation workflow built to make model setup, computation, verification, and result export explicit rather than hidden behind a one-click solve.</p>
+          <p className="system-lede">A modular simulation workflow that separates model setup, computation, verification, and result export into documented stages.</p>
           <div className="flow-grid">{feaFlow.map(([n,t,d]) => <div className="flow-step" key={n}><span>{n}</span><strong>{t}</strong><p>{d}</p></div>)}</div>
           <div className="output-grid">
             <div className="result-panel mesh-panel"><p>Mesh + boundary conditions</p><div className="mesh" /><span>Discretized model</span></div>
@@ -141,7 +139,7 @@ export default function Home() {
 
         <article className="system-card cad-card">
           <div className="system-header"><div><p className="eyebrow">CAD automation / Model-based simulation</p><h3>NX-to-MATLAB optimization pipeline</h3></div><span className="status private">Sanitized architecture</span></div>
-          <p className="system-lede">A Python-controlled workflow that translates structured design parameters into repeatable Siemens NX geometry, connects the resulting model to MATLAB/Simulink evaluation, and returns review-ready data.</p>
+          <p className="system-lede">A Python workflow that converts structured design parameters into Siemens NX geometry, runs MATLAB/Simulink evaluations, and exports results for review.</p>
           <div className="pipeline">{cadFlow.map(([t,d], index) => <div className="pipeline-step" key={t}><span>0{index + 1}</span><strong>{t}</strong><p>{d}</p>{index < cadFlow.length - 1 && <b aria-hidden="true">→</b>}</div>)}</div>
           <div className="code-window"><div className="code-top"><span /><span /><span /><em>automation_run.json</em></div><pre>{`{
   "design_id": "sample_042",
@@ -156,7 +154,7 @@ export default function Home() {
 
         <article className="reef-card">
           <div><p className="eyebrow">Biological design software</p><h3>REEF</h3></div>
-          <p>Contributing to a platform that helps researchers reason about and design biological systems. The work is presented here only at a public product level; internal architecture and implementation remain private.</p>
+          <p>Contributing to a software platform for designing and analyzing biological systems. This portfolio includes only publicly available product information.</p>
           <a href="https://reef.bio" rel="noreferrer">Visit reef.bio ↗</a>
         </article>
       </section>
@@ -164,8 +162,8 @@ export default function Home() {
       <section className="section matlab-section" id="matlab">
         <div className="section-heading">
           <p>03 / MATLAB laboratory</p>
-          <h2>Models built to<br /><em>answer questions.</em></h2>
-          <span>A selected archive of simulation, signal-processing, optimization, and biomedical-computation work built in MATLAB and Simulink.</span>
+          <h2>MATLAB and<br />Simulink.</h2>
+          <span>Selected projects in simulation, signal processing, optimization, and biomedical computation.</span>
         </div>
 
         <article className="matlab-feature">
@@ -223,7 +221,7 @@ export default function Home() {
       </section>
 
       <section className="section experience" id="experience">
-        <div className="section-heading"><p>04 / Field experience</p><h2>From research<br />to <em>production.</em></h2></div>
+        <div className="section-heading"><p>04 / Experience</p><h2>Engineering<br />experience.</h2></div>
         <div className="timeline">
           <article><time>2025—2026</time><div><h3>U.S. Naval Research Laboratory</h3><p>Spacecraft Mechanisms Design Engineer Co-op</p><span>MATLAB/Simulink controls · Siemens NX · robotic mechanisms · test fixtures · CAD automation</span></div></article>
           <article><time>2025—Present</time><div><h3>The Foundry</h3><p>Co-Founder</p><span>Building Philadelphia&apos;s builder-led founder community and connecting 10,000+ people through programs, events, mentorship, and capital access.</span></div></article>
@@ -233,7 +231,7 @@ export default function Home() {
       </section>
 
       <section className="contact" id="contact">
-        <p>05 / Contact</p><h2>Have a hard problem?<br /><em>Let&apos;s build the evidence.</em></h2>
+        <p>05 / Contact</p><h2>Get in touch.</h2>
         <div className="contact-links">
           <a href="mailto:sk4363@drexel.edu"><span>School</span>sk4363@drexel.edu ↗</a>
           <a href="mailto:skhan101905@gmail.com"><span>Personal</span>skhan101905@gmail.com ↗</a>

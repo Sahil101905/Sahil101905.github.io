@@ -9,7 +9,7 @@ const description = "A 3D-printed desktop arm with a gear-driven three-finger cl
 export const metadata: Metadata = {
   title: "Three-finger claw arm for MORPH",
   description,
-  openGraph: { title: "Three-finger claw arm · Sahil Khan", description, images: [absolute("/projects/morph-claw-arm/cover.jpg")] },
+  openGraph: { title: "Three-finger claw arm · Sahil Khan", description, images: [absolute("/projects/morph-claw-arm/card-grab.jpg")] },
 };
 
 const poses = [

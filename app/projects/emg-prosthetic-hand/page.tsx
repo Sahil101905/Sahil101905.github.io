@@ -13,8 +13,18 @@ export const metadata: Metadata = {
 
 const models = [
   { id: "linkage", label: "Finger linkage", file: "/models/emg-prosthetic/finger-linkage-assembly.step", note: "The six-body finger mechanism: knuckle, phalanx links and connecting members.", rotation: [-0.18, -0.35, 0.06] as const },
-  { id: "prototype", label: "Full prototype", file: "/models/emg-prosthetic/complete-prototype.step", note: "The complete two-finger mechanism on the one-piece base plate, with both actuator covers in place.", rotation: [0, 1.25, 0] as const },
-  { id: "forearm", label: "Forearm", file: "/models/emg-prosthetic/forearm-assembly.step", note: "The forearm enclosure and how it packages the internal mechanism.", rotation: [-0.16, -0.4, 0.02] as const },
+  {
+    id: "prototype",
+    label: "Full arm",
+    file: "/models/emg-prosthetic/complete-prototype.step",
+    note: "The two-finger gripper with its actuator covers, mounted to the tapered forearm shell.",
+    rotation: [0, 1.25, 0] as const,
+    extras: [
+      { file: "/models/emg-prosthetic/forearm-shell-top.stl", matrix: [0, 0, -1, 918, 0, 1, 0, 801, 1, 0, 0, 1214.5, 0, 0, 0, 1] },
+      { file: "/models/emg-prosthetic/forearm-shell-bottom.stl", matrix: [0, 0, -1, 918, 0, -1, 0, 804, -1, 0, 0, 1314.5, 0, 0, 0, 1] },
+    ],
+  },
+  { id: "forearm", label: "Gripper", file: "/models/emg-prosthetic/forearm-assembly.step", note: "The base plate, finger linkages and four linear actuators without the covers.", rotation: [-0.16, -0.4, 0.02] as const },
   { id: "actuator", label: "Actuator", file: "/models/emg-prosthetic/actuonix-l16-actuator.step", note: "The Actuonix L16 linear actuator, used to study packaging and stroke.", rotation: [-0.12, -0.45, 0.02] as const },
 ];
 

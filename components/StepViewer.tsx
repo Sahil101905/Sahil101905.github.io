@@ -24,6 +24,8 @@ export type StepModel = {
   file: string;
   note: string;
   rotation?: readonly [number, number, number];
+  /** Extra STL parts placed into the STEP's coordinate frame with a row-major 4x4 matrix. */
+  extras?: readonly { file: string; matrix: readonly number[] }[];
 };
 
 let occtPromise: Promise<OcctModule> | null = null;
@@ -123,6 +125,19 @@ export default function StepViewer({ models, initial = 0, deflection = 0.05, tit
         group.add(new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color, metalness: 0.15, roughness: 0.55, wireframe })));
         group.add(new THREE.LineSegments(new THREE.EdgesGeometry(geometry, 34), new THREE.LineBasicMaterial({ color: 0x2b2f38, transparent: true, opacity: 0.35 })));
       });
+
+      if (model.extras?.length) {
+        const { STLLoader } = await import("three/examples/jsm/loaders/STLLoader.js");
+        const loader = new STLLoader();
+        const geometries = await Promise.all(model.extras.map((extra) => loader.loadAsync(asset(extra.file))));
+        if (cancelled) return;
+        geometries.forEach((geometry, index) => {
+          geometry.applyMatrix4(new THREE.Matrix4().set(...(model.extras![index].matrix as Parameters<THREE.Matrix4["set"]>)));
+          geometry.computeVertexNormals();
+          group.add(new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0xc7cbd2, metalness: 0.1, roughness: 0.6, wireframe })));
+          group.add(new THREE.LineSegments(new THREE.EdgesGeometry(geometry, 34), new THREE.LineBasicMaterial({ color: 0x2b2f38, transparent: true, opacity: 0.35 })));
+        });
+      }
 
       // Center the parts inside a pivot so rotation happens about the model's center.
       const box = new THREE.Box3().setFromObject(group);

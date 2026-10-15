@@ -48,6 +48,30 @@ export const caseStudies: CaseStudy[] = [
     coverAlt: "CAD render of the robot arm reaching down with its three-finger claw open",
   },
   {
+    slug: "openframe-smart-glasses",
+    title: "OpenFrame smart glasses",
+    summary:
+      "Monocular glasses, now in assembly, that show phone notifications through a white OLED, a collimating lens and a small acrylic combiner, with the iPhone doing the computing. Includes a Unity simulator for testing the interface before the optics and a SwiftUI phone host.",
+    year: "2025 – now",
+    context: "Personal project",
+    role: "Optics, CAD, firmware, apps",
+    tools: ["Onshape", "ESP32", "Unity, C#", "SwiftUI"],
+    cover: "/projects/openframe/cover.jpg",
+    coverAlt: "CAD render of the OpenFrame glasses with the optical pod on the right side",
+  },
+  {
+    slug: "wearable-physio-monitor",
+    title: "Wearable physiological monitor",
+    summary:
+      "A wrist wearable that streams synchronized pulse and motion data over Bluetooth Low Energy, with a Python pipeline that withholds heart rate when motion makes the signal unreliable.",
+    year: "2026 – now",
+    context: "Personal project",
+    role: "Hardware, firmware, protocol, analysis",
+    tools: ["ESP32-S3", "MAX30102, BMI270", "BLE", "Python"],
+    cover: "/projects/wearable-physio-monitor/cover.png",
+    coverAlt: "Plot of a pulse signal with heart rate withheld during a period of motion",
+  },
+  {
     slug: "negative-pressure-helmet",
     title: "Negative-pressure isolation helmet",
     summary:

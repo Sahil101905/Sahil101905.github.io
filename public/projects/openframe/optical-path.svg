@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15">
+  <rect width="880" height="420" fill="#ffffff"/>
+  <!-- room light, passing through combiner -->
+  <g stroke="#b9bec7" stroke-width="2" stroke-dasharray="6 6" fill="none">
+    <line x1="800" y1="150" x2="140" y2="150"/>
+    <line x1="800" y1="190" x2="140" y2="190"/>
+  </g>
+  <text x="860" y="138" text-anchor="end" fill="#6b6f78">Room light, ~30% transmitted</text>
+  <!-- display path -->
+  <g stroke="#2f4a85" stroke-width="2.5" fill="none">
+    <line x1="470" y1="350" x2="470" y2="170"/>
+    <line x1="500" y1="350" x2="500" y2="170"/>
+    <line x1="470" y1="170" x2="140" y2="170"/>
+  </g>
+  <path d="M152 164 L140 170 L152 176 Z" fill="#2f4a85"/>
+  <!-- OLED -->
+  <rect x="440" y="350" width="90" height="16" rx="2" fill="#16181d"/>
+  <text x="545" y="363" fill="#16181d">0.96" white OLED, 128 × 64, mirrored image</text>
+  <!-- lens -->
+  <ellipse cx="485" cy="290" rx="46" ry="9" fill="#e7ecf5" stroke="#2f4a85" stroke-width="2"/>
+  <text x="545" y="295" fill="#16181d">34 mm biconvex lens, f = 45 mm</text>
+  <line x1="410" y1="290" x2="410" y2="358" stroke="#6b6f78" stroke-width="1.2"/>
+  <line x1="404" y1="290" x2="416" y2="290" stroke="#6b6f78" stroke-width="1.2"/>
+  <line x1="404" y1="358" x2="416" y2="358" stroke="#6b6f78" stroke-width="1.2"/>
+  <text x="398" y="329" text-anchor="end" fill="#6b6f78">~45 mm, adjustable</text>
+  <!-- combiner -->
+  <line x1="440" y1="215" x2="530" y2="125" stroke="#16181d" stroke-width="4"/>
+  <text x="545" y="92" fill="#16181d">Two-way acrylic combiner at ~45°</text>
+  <!-- eye -->
+  <path d="M120 130 Q70 170 120 210" fill="none" stroke="#16181d" stroke-width="2.5"/>
+  <circle cx="108" cy="170" r="9" fill="#16181d"/>
+  <text x="95" y="245" text-anchor="middle" fill="#16181d">Right eye</text>
+  <text x="95" y="265" text-anchor="middle" fill="#6b6f78">sees the card</text>
+  <text x="95" y="283" text-anchor="middle" fill="#6b6f78">over the room</text>
+</svg>

@@ -82,63 +82,32 @@ export default function VerificationExplorer() {
   const active = tests.find((test) => test.id === activeId) ?? tests[0];
 
   return (
-    <section className="helmet-verification" id="verification">
-      <div className="helmet-section-heading">
-        <p>04 / Bench verification</p>
-        <div>
-          <h2>Six requirements, each tied to a measurable test.</h2>
-          <p>
-            Select a requirement to inspect the result, threshold, repeated
-            trials, and the team&apos;s stated confidence in the evidence.
-          </p>
-        </div>
+    <div className="verify">
+      <div className="verify-tabs" role="tablist" aria-label="Verification results">
+        {tests.map((test) => (
+          <button type="button" role="tab" aria-selected={test.id === active.id} onClick={() => setActiveId(test.id)} key={test.id}>
+            <span>{test.label}</span>
+            <strong>{test.result}</strong>
+          </button>
+        ))}
       </div>
-
-      <div className="verification-shell">
-        <div className="verification-tabs" role="tablist" aria-label="Verification results">
-          {tests.map((test) => (
-            <button
-              type="button"
-              role="tab"
-              aria-selected={test.id === active.id}
-              className={test.id === active.id ? "active" : ""}
-              onClick={() => setActiveId(test.id)}
-              key={test.id}
-            >
-              <span>{test.number}</span>
-              {test.label}
-            </button>
+      <div className="verify-detail" role="tabpanel">
+        <dl className="verify-meta">
+          <div><dt>Measured</dt><dd>{active.result}</dd></div>
+          <div><dt>Requirement</dt><dd>{active.requirement}</dd></div>
+          <div><dt>Trials</dt><dd>{active.trials}</dd></div>
+          <div><dt>Team confidence</dt><dd>{active.confidence}</dd></div>
+        </dl>
+        <p>{active.note}</p>
+        <div className="trial-bars" aria-label={`Relative trial results for ${active.label}`}>
+          {active.bars.map((value, index) => (
+            <div key={`${active.id}-${index}`}>
+              <i style={{ height: `${Math.max(12, value)}%` }} />
+              <span>T{index + 1}</span>
+            </div>
           ))}
         </div>
-
-        <div className="verification-detail" role="tabpanel">
-          <div className="verification-result">
-            <p>Measured result</p>
-            <strong>{active.result}</strong>
-            <span>{active.label}</span>
-          </div>
-          <div className="verification-copy">
-            <div className="verification-meta">
-              <div><span>Design threshold</span><strong>{active.requirement}</strong></div>
-              <div><span>Repeated trials</span><strong>{active.trials}</strong></div>
-              <div><span>Team confidence</span><strong>{active.confidence}</strong></div>
-            </div>
-            <p>{active.note}</p>
-            <div className="trial-bars" aria-label={`Relative trial results for ${active.label}`}>
-              {active.bars.map((value, index) => (
-                <div key={`${active.id}-${index}`}>
-                  <i style={{ height: `${Math.max(12, value)}%` }} />
-                  <span>T{index + 1}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
-      <p className="helmet-disclaimer">
-        Course prototype and bench data only. This project was not a clinical
-        study and the device is not presented as approved medical equipment.
-      </p>
-    </section>
+    </div>
   );
 }

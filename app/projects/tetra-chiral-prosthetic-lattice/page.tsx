@@ -1,35 +1,90 @@
-import InteractiveLattice from "./InteractiveLattice";
+import type { Metadata } from "next";
+import { CaseHero, CaseSection, CaseStudyPage, Figure } from "@/components/CaseStudy";
+import ImageTabs from "@/components/ImageTabs";
+import StepViewer from "@/components/StepViewer";
+import { absolute, asset } from "@/lib/site";
+
+const description = "Design, nonlinear FEA, fabrication and compression testing of tetra-chiral lattices for a lightweight prosthetic leg.";
+
+export const metadata: Metadata = {
+  title: "Tetra-chiral prosthetic lattice",
+  description,
+  openGraph: { title: "Tetra-chiral prosthetic lattice · Sahil Khan", description, images: [absolute("/projects/tetra-chiral/cover.png")] },
+};
+
+const models = [
+  { id: "I", label: "Unit cell I", file: "/models/tetra-chiral/unit-cell-1.step", note: "The baseline full-scale unit cell exported from SolidWorks." },
+  { id: "II", label: "Unit cell II", file: "/models/tetra-chiral/unit-cell-2.step", note: "The second iteration, used for the scaled comparison study." },
+  { id: "III", label: "Unit cell III", file: "/models/tetra-chiral/unit-cell-3.step", note: "The reduced-thickness geometry used in the final nonlinear simulation." },
+  { id: "ASTM", label: "ASTM control", file: "/models/tetra-chiral/astm-cylinder.step", note: "The cylindrical control specimen used to characterize the printed material." },
+];
+
+const results = [
+  { id: "displacement", label: "Displacement", image: "/projects/tetra-chiral/displacement.jpg", alt: "Displacement plot for Unit Cell III", caption: "Displacement field, Unit Cell III nonlinear study." },
+  { id: "strain", label: "Strain", image: "/projects/tetra-chiral/strain.jpg", alt: "Strain plot for Unit Cell III", caption: "Strain distribution, Unit Cell III nonlinear study." },
+  { id: "stress", label: "Stress", image: "/projects/tetra-chiral/stress.jpg", alt: "Stress plot for Unit Cell III", caption: "Stress distribution, Unit Cell III nonlinear study." },
+  { id: "response", label: "Load response", image: "/projects/tetra-chiral/response.jpg", alt: "Nonlinear stress versus displacement response", caption: "Stress versus displacement at the loaded node." },
+];
 
 export default function TetraChiralProject() {
-  return <main className="case-page">
-    <header className="case-nav"><a href="/">S.K<span>/26</span></a><a href="/#work">&larr; All projects</a></header>
+  return (
+    <CaseStudyPage>
+      <CaseHero
+        kicker="Case study · Summer 2024"
+        title="Tetra-chiral prosthetic lattice"
+        lede="Can geometry redistribute load in a prosthetic leg without adding mass? I designed three chiral unit cells, simulated them, printed them, and compression-tested them to see where the model held up."
+        facts={[
+          { label: "My role", value: "CAD, FEA, fabrication, testing" },
+          { label: "Methods", value: "Nonlinear FEA, compression testing" },
+          { label: "Tools", value: "SolidWorks, additive manufacturing" },
+          { label: "Output", value: "3 lattice variants + ASTM control" },
+        ]}
+      />
 
-    <section className="case-hero" id="overview">
-      <div className="case-hero-copy"><p className="case-kicker">Flagship case study / Summer 2024</p><h1>Tetra-Chiral<br /><em>Prosthetic Lattice</em></h1><p>A design, simulation, fabrication, and compression-testing study of chiral structures for lightweight prosthetic applications.</p><a href="#question">Explore the study &darr;</a></div>
-      <div className="case-poster"><img src="/projects/prosthetics/tetra-chiral-poster.png" alt="Research poster summarizing tetra-chiral lattice design, FEA, testing, and results" /></div>
-    </section>
+      <CaseSection id="question" label="01 · The question" title="Lightweight, flexible and strong at once">
+        <p>
+          Tetra-chiral structures connect a central ring to its neighbors with curved ligaments. Under compression
+          that topology rotates as it deforms, which can absorb shock while keeping stiffness. The study asked whether
+          that behavior could balance shock absorption, flexibility and strength in a prosthetic leg concept.
+        </p>
+        <p>
+          Simulation alone can&apos;t capture print defects or fixture effects, and physical tests alone can&apos;t
+          show internal stress and strain. So the study used both and compared them.
+        </p>
+      </CaseSection>
 
-    <section className="case-facts" aria-label="Project facts">
-      <div><span>My role</span><strong>CAD &middot; FEA &middot; fabrication &middot; testing</strong></div><div><span>Methods</span><strong>Nonlinear FEA + compression tests</strong></div><div><span>Tools</span><strong>SolidWorks &middot; additive manufacturing</strong></div><div><span>Output</span><strong>3 lattice variants + ASTM control</strong></div>
-    </section>
+      <CaseSection id="cad" label="02 · Geometry" title="Three design iterations" wide>
+        <StepViewer
+          models={models}
+          initial={2}
+          deflection={0.001}
+          title="Original CAD"
+          intro="Each model below is parsed in your browser straight from the SolidWorks STEP export."
+        />
+      </CaseSection>
 
-    <nav className="case-progress" aria-label="Case study sections">
-      <span>Case study</span>
-      <a href="#question"><b>01</b> Question</a>
-      <a href="#cad"><b>02</b> CAD</a>
-      <a href="#simulation"><b>03</b> Evidence</a>
-      <a href="#workflow"><b>04</b> Workflow</a>
-      <a href="#verification"><b>05</b> Verification</a>
-    </nav>
+      <CaseSection id="simulation" label="03 · Simulation" title="Nonlinear FEA of the final cell" wide>
+        <ImageTabs tabs={results} label="Simulation result" />
+      </CaseSection>
 
-    <section className="case-question" id="question"><p>01 / Engineering question</p><div><h2>Can geometry redistribute load without adding unnecessary mass?</h2><p>Tetra-chiral structures use a central ring connected by curved ligaments. Under compression, that topology can produce coupled rotation and deformation. This project explored whether the geometry could balance shock absorption, flexibility, and structural strength in a prosthetic-leg concept.</p><p>Simulation alone could not capture every manufacturing and boundary-condition effect. Physical testing alone could not reveal the internal stress and strain fields. The study therefore used both.</p></div></section>
+      <CaseSection id="workflow" label="04 · Workflow" title="Design, simulate, fabricate, test">
+        <ol className="steps">
+          <li><strong>Design.</strong> Built an ideal unit cell, then scaled variants and tessellated concepts.</li>
+          <li><strong>Simulate.</strong> Ran nonlinear compression studies for displacement, strain, stress and load response.</li>
+          <li><strong>Fabricate.</strong> 3D-printed lattice specimens and an ASTM-style cylindrical control.</li>
+          <li><strong>Test.</strong> Compared compression behavior across simulated and physical specimens.</li>
+        </ol>
+        <Figure src={asset("/projects/prosthetics/tetra-chiral-poster.png")} alt="Research poster summarizing the tetra-chiral lattice study" caption="Research poster summarizing the study." className="poster" />
+      </CaseSection>
 
-    <InteractiveLattice />
-
-    <section className="case-process" id="workflow"><p>04 / Research workflow</p><div className="process-grid"><article><span>01</span><h3>Design</h3><p>Developed an ideal tetra-chiral unit cell, then produced scaled variations and tessellated concepts.</p></article><article><span>02</span><h3>Simulate</h3><p>Applied nonlinear compression studies to examine displacement, strain, stress, and response.</p></article><article><span>03</span><h3>Fabricate</h3><p>3D-printed lattice specimens and an ASTM-style cylindrical control for physical evaluation.</p></article><article><span>04</span><h3>Test</h3><p>Compared compression behavior across simulated and experimental specimens.</p></article></div></section>
-
-    <section className="case-limits" id="verification"><p>05 / Verification</p><div><h2>Where the model matched&mdash;and where it could not.</h2><p>The combined workflow made simulation a testable hypothesis rather than a final answer. Differences between predicted and measured behavior can arise from idealized material properties, contact assumptions, mesh resolution, fixture alignment, print variation, and the boundary conditions used in the solver.</p><p>Those gaps are part of the engineering result: they define what should be calibrated, retested, and redesigned next.</p></div></section>
-
-    <footer className="case-footer"><a href="/">&larr; Return to portfolio</a><a href="mailto:sk4363@drexel.edu">Discuss the work &nearr;</a></footer>
-  </main>;
+      <CaseSection id="verification" label="05 · What I learned" title="Where the model matched, and where it couldn't">
+        <p>
+          Treating the simulation as a hypothesis made its gaps useful. Differences between predicted and measured
+          behavior trace back to idealized material properties, contact assumptions, mesh resolution, fixture
+          alignment, print variation and boundary conditions.
+        </p>
+        <p>Those gaps define what to calibrate, retest and redesign next.</p>
+      </CaseSection>
+    </CaseStudyPage>
+  );
 }

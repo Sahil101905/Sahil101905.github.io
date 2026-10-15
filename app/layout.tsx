@@ -1,22 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans, Source_Serif_4 } from "next/font/google";
+import { absolute, asset, site } from "@/lib/site";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const sans = IBM_Plex_Sans({ variable: "--font-sans", subsets: ["latin"], weight: ["400", "500", "600"] });
+const serif = Source_Serif_4({ variable: "--font-serif", subsets: ["latin"], weight: ["400", "500", "600"], style: ["normal", "italic"] });
+const mono = IBM_Plex_Mono({ variable: "--font-mono", subsets: ["latin"], weight: ["400", "500"] });
 
 export const metadata: Metadata = {
-  title: "Sahil Khan — Engineering Case Studies",
-  description: "Mechanical, biomedical, and software engineering case studies by Sahil Khan.",
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  metadataBase: new URL(site.url),
+  title: { default: site.title, template: "%s · Sahil Khan" },
+  description: site.description,
+  authors: [{ name: site.name }],
+  icons: { icon: asset("/favicon.svg") },
   openGraph: {
-    title: "Sahil Khan — Engineering Case Studies",
-    description: "From signal to structure: tested engineering systems across CAD, simulation, embedded systems, and software.",
-    images: [{ url: "/og.png", width: 1664, height: 928, alt: "Sahil Khan engineering case studies" }],
+    type: "website",
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+    images: [{ url: absolute("/og.png"), width: 1200, height: 630, alt: site.title }],
   },
-  twitter: { card: "summary_large_image", images: ["/og.png"] },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body></html>;
+  return (
+    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
+      <body>{children}</body>
+    </html>
+  );
 }

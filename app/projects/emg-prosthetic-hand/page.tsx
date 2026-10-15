@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const models = [
   { id: "linkage", label: "Finger linkage", file: "/models/emg-prosthetic/finger-linkage-assembly.step", note: "The six-body finger mechanism: knuckle, phalanx links and connecting members.", rotation: [-0.18, -0.35, 0.06] as const },
-  { id: "prototype", label: "Full prototype", file: "/models/emg-prosthetic/complete-prototype.step", note: "The complete mechanism from the one-piece-baseplate prototype.", rotation: [-0.2, -0.42, 0.04] as const },
+  { id: "prototype", label: "Full prototype", file: "/models/emg-prosthetic/complete-prototype.step", note: "The complete two-finger mechanism on the one-piece base plate, with both actuator covers in place.", rotation: [0, 1.25, 0] as const },
   { id: "forearm", label: "Forearm", file: "/models/emg-prosthetic/forearm-assembly.step", note: "The forearm enclosure and how it packages the internal mechanism.", rotation: [-0.16, -0.4, 0.02] as const },
   { id: "actuator", label: "Actuator", file: "/models/emg-prosthetic/actuonix-l16-actuator.step", note: "The Actuonix L16 linear actuator, used to study packaging and stroke.", rotation: [-0.12, -0.45, 0.02] as const },
 ];

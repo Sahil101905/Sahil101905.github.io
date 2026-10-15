@@ -88,6 +88,13 @@ export default function Home() {
                 <p className="meta">{item.method}</p>
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
+                {item.gallery && (
+                  <div className="model-gallery">
+                    {item.gallery.map((figure) => (
+                      <figure key={figure.src}><img src={asset(figure.src)} alt={figure.alt} loading="lazy" /><figcaption>{figure.caption}</figcaption></figure>
+                    ))}
+                  </div>
+                )}
                 {item.link && <a className="text-link" href={asset(item.link.href)} download>{item.link.label} <span aria-hidden="true">↓</span></a>}
               </article>
             ))}

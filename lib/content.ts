@@ -78,6 +78,7 @@ export type ModelingProject = {
   image?: string;
   imageAlt?: string;
   link?: { label: string; href: string };
+  gallery?: { src: string; alt: string; caption: string }[];
 };
 
 export const modeling: ModelingProject[] = [
@@ -89,6 +90,10 @@ export const modeling: ModelingProject[] = [
     image: "/matlab/bcopsim-contact-network.png",
     imageAlt: "Contact-network infection states on days 1, 42 and 100",
     link: { label: "Project report (DOCX)", href: "/matlab/bcopsim-report.docx" },
+    gallery: [
+      { src: "/matlab/bcopsim-parameters.jpg", alt: "Parameter analysis plots for contact, transmission and recovery rates", caption: "Parameter sensitivity" },
+      { src: "/matlab/bcopsim-quarantine.jpg", alt: "Effect of quarantine on peak infections and time to peak", caption: "Quarantine study" },
+    ],
   },
   {
     title: "Muscle-spindle feedback model",

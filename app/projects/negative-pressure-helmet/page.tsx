@@ -44,6 +44,7 @@ export default function NegativePressureHelmetProject() {
           visibility and comfort, and route exhaust through a filter, using parts we could assemble within a
           ten-week course and an $80 budget.
         </p>
+        <Figure src={asset("/projects/negative-pressure-helmet/concept.png")} alt="Concept illustration of the negative-pressure helmet worn by a mannequin" caption="Concept layout." className="concept" />
       </CaseSection>
 
       <CaseSection id="model" label="02 · Model" title="A control-volume model in Simulink" wide>

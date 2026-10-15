@@ -6,6 +6,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { asset } from "@/lib/site";
 
 type OcctMesh = {
+  name?: string;
   color?: number[];
   attributes: { position: { array: number[] }; normal?: { array: number[] } };
   index: { array: number[] };
@@ -24,6 +25,10 @@ export type StepModel = {
   file: string;
   note: string;
   rotation?: readonly [number, number, number];
+  /** Caption under the viewer once the model loads. */
+  source?: string;
+  /** Colors parts whose STEP product name starts with a prefix; first match wins. */
+  partColors?: readonly { prefix: string; color: number }[];
   /** Extra STL parts placed into the STEP's coordinate frame with a row-major 4x4 matrix. */
   extras?: readonly { file: string; matrix: readonly number[] }[];
 };
@@ -46,6 +51,7 @@ function loadOcct() {
 }
 
 const BACKGROUND = 0xeceae4;
+const WORLD_UP = new THREE.Vector3(0, 1, 0);
 const PART_COLORS = [0xb9bec7, 0x9aa3b0, 0x3d5a99, 0xc7cbd2, 0x8a93a1, 0x2f4a85];
 
 /** Interactive viewer that parses original STEP exports in the browser. */
@@ -121,7 +127,8 @@ export default function StepViewer({ models, initial = 0, deflection = 0.05, tit
         if (mesh.attributes.normal) geometry.setAttribute("normal", new THREE.Float32BufferAttribute(mesh.attributes.normal.array, 3));
         else geometry.computeVertexNormals();
         geometry.setIndex(mesh.index.array);
-        const color = PART_COLORS[parsed.meshes.length === 1 ? 0 : index % PART_COLORS.length];
+        const named = model.partColors?.find((part) => mesh.name?.startsWith(part.prefix));
+        const color = named ? named.color : PART_COLORS[parsed.meshes.length === 1 ? 0 : index % PART_COLORS.length];
         group.add(new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color, metalness: 0.15, roughness: 0.55, wireframe })));
         group.add(new THREE.LineSegments(new THREE.EdgesGeometry(geometry, 34), new THREE.LineBasicMaterial({ color: 0x2b2f38, transparent: true, opacity: 0.35 })));
       });
@@ -156,12 +163,12 @@ export default function StepViewer({ models, initial = 0, deflection = 0.05, tit
       controls.update();
       modelRef.current = pivot;
       scene.add(pivot);
-      setStatus("Original SolidWorks export");
+      setStatus(model.source ?? "Original SolidWorks export");
     }).catch((error: Error) => { if (!cancelled) setStatus(error.message); });
 
     const animate = () => {
       frame = requestAnimationFrame(animate);
-      if (modelRef.current && autoRotateRef.current) modelRef.current.rotation.y += 0.003;
+      if (modelRef.current && autoRotateRef.current) modelRef.current.rotateOnWorldAxis(WORLD_UP, 0.003);
       controls.update();
       renderer.render(scene, camera);
     };

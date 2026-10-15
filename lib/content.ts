@@ -51,13 +51,13 @@ export const caseStudies: CaseStudy[] = [
     slug: "openframe-smart-glasses",
     title: "OpenFrame smart glasses",
     summary:
-      "Monocular glasses that show phone notifications through a white OLED, a collimating lens and a small acrylic combiner, with the iPhone doing the computing. Includes a Unity simulator for testing the interface before the optics and a SwiftUI phone host.",
+      "Monocular glasses, now in assembly, that show phone notifications through a white OLED, a collimating lens and a small acrylic combiner, with the iPhone doing the computing. Includes a Unity simulator for testing the interface before the optics and a SwiftUI phone host.",
     year: "2025 – now",
     context: "Personal project",
     role: "Optics, CAD, firmware, apps",
     tools: ["Onshape", "ESP32", "Unity, C#", "SwiftUI"],
-    cover: "/projects/openframe/cover.png",
-    coverAlt: "Diagram of the OLED, lens and combiner folding a notification into the eye",
+    cover: "/projects/openframe/cover.jpg",
+    coverAlt: "CAD render of the OpenFrame glasses with the optical pod on the right side",
   },
   {
     slug: "wearable-physio-monitor",

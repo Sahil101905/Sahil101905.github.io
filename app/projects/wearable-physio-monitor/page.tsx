@@ -14,7 +14,7 @@ export default function WearablePhysioMonitorProject() {
   return (
     <CaseStudyPage>
       <CaseHero
-        kicker="Case study · Personal project · 2026 – now"
+        kicker="Case study · Personal project · 2026 – now · in assembly"
         title="Wearable physiological monitor"
         lede="Wrist heart-rate sensors work well when you sit still and badly when you move. I'm building a research wearable that records pulse and motion together, so it can tell when its own reading is unreliable and say so instead of showing a confident wrong number."
         facts={[
@@ -40,8 +40,8 @@ export default function WearablePhysioMonitorProject() {
 
       <CaseSection id="hardware" label="02 · Hardware" title="Breakout boards first, enclosure later">
         <p>
-          The first build uses separate breakout boards on one I2C bus so each sensor can be checked and replaced on
-          its own. The firmware reads each sensor&apos;s ID register at startup and reports a pass or fail before
+          The parts are bought and I&apos;m assembling the first bench build now. It uses separate breakout boards
+          on one I2C bus so each sensor can be checked and replaced on its own. The firmware reads each sensor&apos;s ID register at startup and reports a pass or fail before
           streaming anything.
         </p>
         <dl className="spec-list">

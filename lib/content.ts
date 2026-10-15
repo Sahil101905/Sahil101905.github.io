@@ -45,7 +45,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Arm and claw design, arm firmware",
     tools: ["OpenSCAD", "3D printing", "ESP32", "Inverse kinematics"],
     cover: "/projects/morph-claw-arm/cover.jpg",
-    coverAlt: "CAD render of the robot arm with its three-finger claw closed into a pointer",
+    coverAlt: "CAD render of the robot arm reaching down with its three-finger claw open",
   },
   {
     slug: "negative-pressure-helmet",

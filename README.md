@@ -2,7 +2,7 @@
 
 Case studies in prosthetic devices, medical device design, simulation and CAD automation.
 
-**[sahil101905.github.io/portfolio](https://sahil101905.github.io/portfolio/)**
+**[sahil101905.github.io](https://sahil101905.github.io/)**
 
 ![Portfolio homepage](public/og.png)
 
@@ -10,9 +10,9 @@ Case studies in prosthetic devices, medical device design, simulation and CAD au
 
 | Project | What it covers |
 | --- | --- |
-| [Tetra-chiral prosthetic lattice](https://sahil101905.github.io/portfolio/projects/tetra-chiral-prosthetic-lattice/) | Three chiral unit cells designed in SolidWorks, nonlinear FEA, 3D-printed specimens and compression testing against an ASTM control. |
-| [Modular prosthetic hand with EMG control](https://sahil101905.github.io/portfolio/projects/emg-prosthetic-hand/) | A repairable 3D-printed hand with linear actuation, a Raspberry Pi + ATmega32U4 control stack and an EMG intent pipeline. |
-| [Negative-pressure isolation helmet](https://sahil101905.github.io/portfolio/projects/negative-pressure-helmet/) | A $68 prototype traced from six requirements to a Simulink control-volume model and repeated bench verification. |
+| [Tetra-chiral prosthetic lattice](https://sahil101905.github.io/projects/tetra-chiral-prosthetic-lattice/) | Three chiral unit cells designed in SolidWorks, nonlinear FEA, 3D-printed specimens and compression testing against an ASTM control. |
+| [Modular prosthetic hand with EMG control](https://sahil101905.github.io/projects/emg-prosthetic-hand/) | A repairable 3D-printed hand with linear actuation, a Raspberry Pi + ATmega32U4 control stack and an EMG intent pipeline. |
+| [Negative-pressure isolation helmet](https://sahil101905.github.io/projects/negative-pressure-helmet/) | A $68 prototype traced from six requirements to a Simulink control-volume model and repeated bench verification. |
 
 The site also covers engineering software (NX-to-MATLAB automation, REEF, an FEA platform) and a set of MATLAB/Simulink modeling projects.
 
@@ -32,7 +32,7 @@ npm run dev     # http://localhost:3000
 npm run build   # static site in ./out
 ```
 
-To serve from a sub-path (as GitHub Pages does), set `NEXT_PUBLIC_BASE_PATH=/portfolio` before building.
+To serve from a sub-path, set `NEXT_PUBLIC_BASE_PATH` (for example `/portfolio`) before building.
 
 ## Contact
 

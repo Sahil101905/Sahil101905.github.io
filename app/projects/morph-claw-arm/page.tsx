@@ -101,12 +101,10 @@ export default function MorphClawArmProject() {
         </ol>
       </CaseSection>
 
-      <CaseSection id="status" label="06 · Status" title="What was built, and what's next">
+      <CaseSection id="status" label="06 · Result" title="Built, wired and demoed">
         <p>
-          The arm was printed during the hackathon, but it wasn&apos;t wired into the robot in time for the demo. The
-          team&apos;s demo ran on a fallback the system was designed for, with the Nano&apos;s knob, buttons and joystick
-          confirming targets instead of the arm. Next is wiring the arm with the team&apos;s e-stop and heartbeat
-          watchdog in place, then tuning the named poses on the real hardware.
+          The arm was printed, assembled and wired into MORPH during the hackathon. The team demoed the full robot to
+          the MLH representatives and the judges at OwlHacks 2026.
         </p>
       </CaseSection>
     </CaseStudyPage>

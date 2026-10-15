@@ -22,7 +22,7 @@ export default function EmgProstheticProject() {
   return (
     <CaseStudyPage>
       <CaseHero
-        kicker="Case study · Drexel IEEE"
+        kicker="Case study · J&J Engineering Showcase · 2025 – 2026"
         title="Modular prosthetic hand with EMG control"
         lede="Advanced prosthetic arms cost $10,000 to $50,000. Our team built a repairable, 3D-printed alternative that reads muscle signals from the opposite limb to predict what the user wants to do."
         facts={[

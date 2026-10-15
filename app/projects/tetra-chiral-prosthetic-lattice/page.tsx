@@ -30,7 +30,7 @@ export default function TetraChiralProject() {
   return (
     <CaseStudyPage>
       <CaseHero
-        kicker="Case study · Summer 2024"
+        kicker="Case study · Zheng Research Lab · 2024 – 2025"
         title="Tetra-chiral prosthetic lattice"
         lede="Can geometry redistribute load in a prosthetic leg without adding mass? I designed three chiral unit cells, simulated them, printed them, and compression-tested them to see where the model held up."
         facts={[
@@ -83,7 +83,11 @@ export default function TetraChiralProject() {
           behavior trace back to idealized material properties, contact assumptions, mesh resolution, fixture
           alignment, print variation and boundary conditions.
         </p>
-        <p>Those gaps define what to calibrate, retest and redesign next.</p>
+        <p>
+          Comparing mechanical properties and dimensional variations, followed by failure-mode analysis, identified
+          2×2×10 tessellations as the best configuration for load distribution and force-to-displacement efficiency.
+        </p>
+        <p>The gaps between model and test define what to calibrate, retest and redesign next.</p>
       </CaseSection>
     </CaseStudyPage>
   );

@@ -11,7 +11,7 @@ export default function Home() {
       <main>
         <section className="container intro">
           <div className="intro-copy">
-            <p className="intro-kicker">Biomedical engineering · Drexel University ’27</p>
+            <p className="intro-kicker">B.S. Biomedical Engineering + M.S. Biomechanics · Drexel ’28</p>
             <h1>I design mechanisms, model them, and test what I build.</h1>
             <p className="intro-lede">
               I&apos;m Sahil Khan, a biomedical engineering student in Philadelphia. My work spans

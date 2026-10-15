@@ -15,9 +15,9 @@ export const caseStudies: CaseStudy[] = [
     slug: "tetra-chiral-prosthetic-lattice",
     title: "Tetra-chiral prosthetic lattice",
     summary:
-      "Designed three chiral unit cells for a lightweight prosthetic leg, ran nonlinear FEA on them, then printed and compression-tested the specimens against an ASTM control.",
-    year: "2024",
-    context: "Summer research",
+      "Designed chiral unit cells for a lightweight prosthetic leg, ran nonlinear FEA, then printed and compression-tested specimens against an ASTM control. Failure-mode analysis pointed to 2×2×10 tessellations as the best configuration for load distribution.",
+    year: "2024 – 2025",
+    context: "Zheng Research Lab",
     role: "CAD, FEA, fabrication, testing",
     tools: ["SolidWorks", "Nonlinear FEA", "3D printing", "Compression testing"],
     cover: "/projects/tetra-chiral/cover.png",
@@ -28,8 +28,8 @@ export const caseStudies: CaseStudy[] = [
     title: "Modular prosthetic hand with EMG control",
     summary:
       "A low-cost, repairable upper-limb prosthetic that pairs a 3D-printed finger linkage and linear actuation with a muscle-signal pipeline for intent prediction.",
-    year: "",
-    context: "Drexel IEEE · team of 6",
+    year: "2025 – 2026",
+    context: "J&J Engineering Showcase · team of 6",
     role: "System architecture, EMG software",
     tools: ["SolidWorks", "Raspberry Pi", "ATmega32U4", "EMG processing"],
     cover: "/projects/emg-prosthetic/cover.png",
@@ -52,10 +52,10 @@ export const caseStudies: CaseStudy[] = [
 export const software = [
   {
     title: "NX-to-MATLAB design automation",
-    tag: "Private work",
+    tag: "Naval Research Laboratory",
     body:
-      "A Python controller that turns structured design parameters into Siemens NX geometry, runs MATLAB/Simulink evaluations on it, and exports results as JSON and CSV for review.",
-    note: "Generalized from private work. Geometry, parameters and results are not shown.",
+      "A Python application built on the NX Open API that automates generating and exporting STEP CAD files, supporting organization-wide rapid prototyping. Paired with MATLAB/Simulink evaluation of the generated designs.",
+    note: "Organization-specific geometry, parameters and results are not shown.",
   },
   {
     title: "REEF",
@@ -137,16 +137,16 @@ export const modeling: ModelingProject[] = [
 
 export const experience = [
   {
-    when: "2025 – 2026",
+    when: "Sep 2025 – Mar 2026",
     org: "U.S. Naval Research Laboratory",
     role: "Spacecraft Mechanisms Design Engineer, Co-op",
-    detail: "Robotic mechanisms, test fixtures and CAD automation in Siemens NX, with MATLAB/Simulink controls work.",
+    detail: "Simulated and debugged a PID flight controller in MATLAB/Simulink with Monte Carlo parameter sweeps, designed actuated mechanisms and test fixtures for high-temperature, compact environments in Siemens NX, and built NX Open automation for STEP generation.",
   },
   {
-    when: "2024 – 2025",
+    when: "Sep 2024 – Mar 2025",
     org: "Estée Lauder Companies",
-    role: "Manufacturing Engineer",
-    detail: "Process validation and technical documentation in regulated manufacturing. Contributed to a measured 15% reduction in manufacturing cost.",
+    role: "Manufacturing Engineer Co-op, Commercialization & Validation",
+    detail: "Process validation that cut manufacturing costs by 15%, validation testing across 250+ products to FDA and EMEA standards, and regulatory documentation for $1M+ global launches.",
   },
   {
     when: "2025 – now",

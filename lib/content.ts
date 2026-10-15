@@ -36,6 +36,18 @@ export const caseStudies: CaseStudy[] = [
     coverAlt: "CAD render of the complete prosthetic hand mechanism",
   },
   {
+    slug: "morph-claw-arm",
+    title: "Three-finger claw arm for MORPH",
+    summary:
+      "Designed a 3D-printed robot arm with a gear-driven three-finger claw for a team hackathon robot, built around the servos and stepper on hand, plus ESP32 firmware that checks every pose for collisions before moving.",
+    year: "2026",
+    context: "OwlHacks · team project",
+    role: "Arm and claw design, arm firmware",
+    tools: ["3D printing", "ESP32", "Inverse kinematics", "Gear design"],
+    cover: "/projects/morph-claw-arm/cover.jpg",
+    coverAlt: "All printed parts of the robot arm laid out on one build plate",
+  },
+  {
     slug: "negative-pressure-helmet",
     title: "Negative-pressure isolation helmet",
     summary:

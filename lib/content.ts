@@ -64,10 +64,11 @@ export const software = [
     link: { label: "reef.bio", href: "https://reef.bio" },
   },
   {
-    title: "Finite-element analysis platform",
-    tag: "In progress",
+    title: "EXODUS TPL: requirement-driven design verification",
+    tag: "Exodus Industries · 2026 – now",
     body:
-      "A modular FEA workflow that separates model setup, solving, verification against analytical cases, and result export into documented stages.",
+      "A platform that takes a CAD model and a list of engineering requirements and returns editable CAD, a pass or fail for every requirement, and an audit trail behind each result. It runs structural, vibration, thermal, flow and manufacturability checks in one place instead of across separate tools. In a demonstration study it took a four-part valve through 24 design candidates in 35.5 minutes unattended, found that the starting design failed its flow requirement, and identified two candidates that met all five requirements. Results are deterministic, and the core structural and vibration engines pass 14 of 14 analytic verification groups.",
+    note: "Python, FastAPI, React, ROS 2, FEA and CFD. Also applied to a $100K+ surgical endoscope development program. Internal methods are proprietary and not shown.",
   },
 ];
 

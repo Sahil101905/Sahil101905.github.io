@@ -14,7 +14,7 @@ Case studies in prosthetic devices, medical device design, simulation and CAD au
 | [Modular prosthetic hand with EMG control](https://sahil101905.github.io/projects/emg-prosthetic-hand/) | A repairable 3D-printed hand with linear actuation, a Raspberry Pi + ATmega32U4 control stack and an EMG intent pipeline. |
 | [Negative-pressure isolation helmet](https://sahil101905.github.io/projects/negative-pressure-helmet/) | A $68 prototype traced from six requirements to a Simulink control-volume model and repeated bench verification. |
 
-The site also covers engineering software (NX-to-MATLAB automation, REEF, an FEA platform) and a set of MATLAB/Simulink modeling projects.
+The site also covers engineering software (EXODUS TPL, NX-to-MATLAB automation, REEF) and a set of MATLAB/Simulink modeling projects.
 
 ## How it's built
 
